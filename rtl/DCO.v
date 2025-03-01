@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 //=====================================================================
 // Description:
-// Digital Oscillator
+// Digital Controlled Oscillator
 // Designer : Huang Chaofan, extraordinary.h@sjtu.edu.cn
 // Revision History:
 // V0 date: 2025.3.1 Initial version, Huang Chaofan
