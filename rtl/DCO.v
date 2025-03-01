@@ -16,6 +16,7 @@ module DCO #(
     input      sub_pulse,  //cnt_max - 1
     input      add_pulse,  //cnt_max + 1
     input      ref_rise,
+    input [9:0]ref_period,
 
     output reg ctrl_signal
 );
@@ -39,7 +40,7 @@ always @(posedge clk or negedge rst_n)
 begin
     if(!rst_n)
         cnt <= 0;
-    else if(ref_rise)
+    else if(ref_rise && (ref_period * 2 > cnt_max) )
         cnt <= 0;
     else if(cnt >= cnt_max)
         cnt <= 0;
@@ -51,6 +52,8 @@ always @(posedge clk or negedge rst_n)
 begin
     if(!rst_n)
         ctrl_signal <= 1'b1;
+    else if((ref_period * 2 <= cnt_max))
+        ctrl_signal <= 1'b0;
     else if(cnt < (cnt_max >> 1) )
         ctrl_signal <= 1'b1;
     else

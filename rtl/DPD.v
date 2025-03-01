@@ -8,18 +8,48 @@
 // ====================================================================
 
 module DPD(
-    input      clk,
-    input      rst_n,
-    input      ref_signal,
-    input      ctrl_signal,
+    input            clk,
+    input            rst_n,
+    input            ref_signal,
+    input            ctrl_signal,
 
-    output reg lead,
-    output reg lag,
-    output     ref_rise
+    output reg       lead,
+    output reg       lag,
+    output           ref_rise,
+    output reg [9:0] ref_period
 );
 
-
+reg flag;
+reg [9:0] cnt;
 reg ref_signal_d1, ctrl_signal_d1;
+
+always @(posedge clk or negedge rst_n)
+begin
+    if(!rst_n)
+        flag <= 1'b0;
+    else if(ref_rise)
+        flag <= 1'b1;
+end
+
+always @(posedge clk or negedge rst_n)
+begin
+    if(!rst_n)
+        cnt <= 0;
+    else if(ref_rise)
+        cnt <= 0;
+    else if(flag)
+        cnt <= cnt + 1;
+end
+
+always @(posedge clk or negedge rst_n) 
+begin
+    if(!rst_n)
+        ref_period <= 0;
+    else if(ref_rise && !flag)
+        ref_period <= 0; 
+    else if(ref_rise)
+        ref_period <= cnt;
+end
 
 always @(posedge clk or negedge rst_n)
 begin

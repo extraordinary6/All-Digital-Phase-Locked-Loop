@@ -17,6 +17,7 @@ module ADPLL(
 
 wire lead, lag, ref_rise;
 wire add_pulse, sub_pulse;
+wire [9:0] ref_period;
 
 
 DPD u_DPD(
@@ -26,7 +27,8 @@ DPD u_DPD(
     .ctrl_signal (ctrl_signal ),
     .lead        (lead        ),
     .lag         (lag         ),
-    .ref_rise    (ref_rise    )
+    .ref_rise    (ref_rise    ),
+    .ref_period  (ref_period  )
 );
 
 
@@ -52,6 +54,7 @@ DCO #(
     .sub_pulse   (sub_pulse   ),
     .add_pulse   (add_pulse   ),
     .ref_rise    (ref_rise    ),
+    .ref_period  (ref_period  ),
     .ctrl_signal (ctrl_signal )
 );
 
