@@ -1,7 +1,7 @@
 # All-Digital-Phase-Locked-Loop
 
 ## Overview
-This project is an **All-Digital Phase-Locked Loop (ADPLL)** implementation and has been simulated on QuestaSim 10.6c. 
+This project is an **All-Digital Phase-Locked Loop (ADPLL)** implementation and has been simulated on QuestaSim 10.6c.  
 It is designed purely for practice purposes, aiming to help me understand the core principles behind **Digital Phase-Locked Loops (DPLL)**.  
 
 The design is implemented in **Verilog** and consists of the following key modules:
