@@ -1,15 +1,15 @@
 # All-Digital-Phase-Locked-Loop
 
 ## Overview
-This project is an **All-Digital Phase-Locked Loop (ADPLL)** implementation.  
+This project is an **All-Digital Phase-Locked Loop (ADPLL)** implementation and has been simulated on QuestaSim 10.6c. 
 It is designed purely for practice purposes, aiming to help me understand the core principles behind **Digital Phase-Locked Loops (DPLL)**.  
 
 The design is implemented in **Verilog** and consists of the following key modules:
 
 - `ADPLL.v`: Top-level file, integrating the entire ADPLL system.
-- `DPD`: Digital Phase Detector, responsible for detecting phase differences between the reference signal and the controlled oscillator signal.
-- `DB`: Digital Buffer, responsible for converting phase lead/lag signals into frequency adjustment pulses.
-- `DCO`: Digitally Controlled Oscillator, responsible for generating the controlled signal with an adjustable frequency.
+- `DPD.v`: Digital Phase Detector, responsible for detecting phase differences between the reference signal and the controlled oscillator signal.
+- `DB.v`: Digital Buffer, responsible for converting phase lead/lag signals into frequency adjustment pulses.
+- `DCO.v`: Digitally Controlled Oscillator, responsible for generating the controlled signal with an adjustable frequency.
 
 ---
 
